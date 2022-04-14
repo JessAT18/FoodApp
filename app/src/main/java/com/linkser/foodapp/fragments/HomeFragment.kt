@@ -1,27 +1,22 @@
 package com.linkser.foodapp.fragments
 
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
-import com.linkser.foodapp.R
 import com.linkser.foodapp.databinding.FragmentHomeBinding
-import com.linkser.foodapp.pojo.Meal
-import com.linkser.foodapp.pojo.MealList
-import com.linkser.foodapp.retrofit.RetrofitInstance
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.linkser.foodapp.viewModel.HomeViewModel
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var homeMvvm: HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        homeMvvm = ViewModelProviders.of(this)[HomeViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -36,24 +31,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        RetrofitInstance.api.getRandomMeal().enqueue(object: Callback<MealList>{
-            override fun onResponse(call: Call<MealList>, response: Response<MealList>) {
-                if (response.body() != null) {
-                   val randomMeal: Meal = response.body()!!.meals[0]
-                   //Log.d("TEST", "meal id ${randomMeal.idMeal} name ${randomMeal.strMeal}")
-                    Glide.with(this@HomeFragment)
-                        .load(randomMeal.strMealThumb)
-                        .into(binding.imgRandomMeal)
-                }
-                else {
-                    return
-                }
-            }
-
-            override fun onFailure(call: Call<MealList>, t: Throwable) {
-                Log.d("HomeFragment", t.message.toString())
-            }
-        })
     }
 
+
+    /*
+    *                     Glide.with(this@HomeFragment)
+                        .load(randomMeal.strMealThumb)
+                        .into(binding.imgRandomMeal)*/
 }
