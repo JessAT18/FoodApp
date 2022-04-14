@@ -13,6 +13,6 @@
 
     <item android:title="Category"
         android:icon="@drawable/ic_category"
-        android:id="@+id/categoryFragment"
+        android:id="@+id/categoriesFragment"
         />
 </menu>

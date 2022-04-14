@@ -8,8 +8,7 @@
     >
 
     <fragment
-        android:id="@+id/frag_host"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:id="@+id/host_fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
@@ -17,7 +16,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:defaultNavHost = "true"
-        app:navGraph="@navigation/nav_graph" />
+
+        app:navGraph="@navigation/navigation_graph"
+        android:name="androidx.navigation.fragment.NavHostFragment"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
