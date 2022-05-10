@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.bumptech.glide.Glide
 import com.linkser.foodapp.pojo.Meal
 import com.linkser.foodapp.pojo.MealList
 import com.linkser.foodapp.retrofit.RetrofitInstance
