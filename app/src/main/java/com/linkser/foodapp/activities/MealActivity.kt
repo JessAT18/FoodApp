@@ -51,7 +51,7 @@ class MealActivity : AppCompatActivity() {
         mealMvvm.observerMealDetailsLiveData().observe(this, object: Observer<Meal>{
             override fun onChanged(t: Meal?) {
 
-                loadingCase()
+                onResponseCase()
 
                 val meal = t
 
