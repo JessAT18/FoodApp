@@ -1,6 +1,7 @@
 package com.linkser.foodapp.retrofit
 
 import com.linkser.foodapp.pojo.CategoryList
+import com.linkser.foodapp.pojo.MealsByCategoryList
 import com.linkser.foodapp.pojo.MealList
 import retrofit2.Call
 import retrofit2.http.GET
@@ -14,5 +15,8 @@ interface MealApi {
     fun getMealDetails(@Query("i") id: String): Call<MealList>
 
     @GET("filter.php?")
-    fun getMostPopularMeals(@Query("c") categoryName: String): Call<CategoryList>
+    fun getMostPopularMeals(@Query("c") categoryName: String): Call<MealsByCategoryList>
+
+    @GET("categories.php")
+    fun getCategories(): Call<CategoryList>
 }
