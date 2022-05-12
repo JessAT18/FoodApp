@@ -41,7 +41,6 @@ dependencies {
     def nav_version = "2.4.2"
     def lifecycle_version = "2.5.0-beta01"
     def lifecycle_ext_version = "2.2.0"
-
     def roomVersion = "2.4.2"
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -76,6 +75,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_ext_version"
     // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    //Coroutines
+//    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation group: 'androidx.lifecycle', name:'lifecycle-viewmodel-ktx', version: '2.0.0-alpha1'
+
 
     //Room
     implementation("androidx.room:room-runtime:$roomVersion")
