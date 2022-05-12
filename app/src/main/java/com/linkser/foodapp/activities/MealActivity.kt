@@ -59,7 +59,8 @@ class MealActivity : AppCompatActivity() {
                 binding.tvArea.text = "Area: ${meal!!.strArea}"
                 binding.tvInstructionsSteps.text = meal.strInstructions
 
-                youtubeLink = meal.strYoutube
+                //commented with not null p9
+                youtubeLink = meal.strYoutube!!
             }
 
         })
