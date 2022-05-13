@@ -9,6 +9,7 @@ import com.linkser.foodapp.pojo.MealsByCategory
 
 class MostPopularMealsAdapter: RecyclerView.Adapter<MostPopularMealsAdapter.PopularMealViewHolder>() {
     lateinit var onItemClick: ((MealsByCategory) -> Unit)
+    var onLongItemClick: ((MealsByCategory) -> Unit) ? = null
     private var mealsList = ArrayList<MealsByCategory>()
 
     fun setMeals(mealsList: ArrayList<MealsByCategory>){
@@ -27,6 +28,11 @@ class MostPopularMealsAdapter: RecyclerView.Adapter<MostPopularMealsAdapter.Popu
 
         holder.itemView.setOnClickListener {
             onItemClick.invoke(mealsList[position])
+        }
+
+        holder.itemView.setOnLongClickListener {
+            onLongItemClick?.invoke(mealsList[position])
+            true
         }
     }
 

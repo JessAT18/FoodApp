@@ -16,6 +16,7 @@ import com.linkser.foodapp.activities.MealActivity
 import com.linkser.foodapp.adapters.CategoriesAdapter
 import com.linkser.foodapp.adapters.MostPopularMealsAdapter
 import com.linkser.foodapp.databinding.FragmentHomeBinding
+import com.linkser.foodapp.fragments.bottomsheet.MealBottomSheetFragment
 import com.linkser.foodapp.pojo.MealsByCategory
 import com.linkser.foodapp.pojo.Meal
 import com.linkser.foodapp.viewModel.HomeViewModel
@@ -74,6 +75,15 @@ class HomeFragment : Fragment() {
 
         onCategoryClick()
 
+        onPopularItemLongClick()
+
+    }
+
+    private fun onPopularItemLongClick() {
+        popularItemsAdapter.onLongItemClick = { meal ->
+            val mealBottomSheetFragment = MealBottomSheetFragment.newInstance(meal.idMeal)
+            mealBottomSheetFragment.show(childFragmentManager, "Meal Info")
+        }
     }
 
     private fun onCategoryClick() {
